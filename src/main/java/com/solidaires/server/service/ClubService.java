@@ -19,9 +19,24 @@ public class ClubService implements IClubService {
 		return clubRepository.findAll();
 	}
 	@Override
-	public Club addClub(Club club) {
+	public Club saveClub(Club club) {
 		// TODO Auto-generated method stub
 		return clubRepository.save(club);
 	}
+	@Override
+	public void deleteClub(Long id) {
+		// TODO Auto-generated method stub
+		 
+		clubRepository.deleteById(id);
+	}
+	
+	@Override
+	public Club getClubById(Long id) {
+		// TODO Auto-generated method stub
+		return clubRepository.findById(id).get();
+	}
+	 
+
+
 
 }
