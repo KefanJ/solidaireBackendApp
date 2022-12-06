@@ -3,9 +3,9 @@ package com.solidaires.server.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.solidaires.server.entity.Club;
+import com.solidaires.server.entity.Joueur;
 
 @Repository
-public interface IClubRepository extends JpaRepository<Club, Long> {
-	//List<Club> findByNom(String nom);
+public interface IJoueurRepository extends JpaRepository<Joueur, Long> {
+	
 }

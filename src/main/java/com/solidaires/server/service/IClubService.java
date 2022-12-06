@@ -9,6 +9,7 @@ public interface IClubService {
 	public Club saveClub(Club club);
 	public void deleteClub(Long id);
 	public Club getClubById(Long id);
+	//public Club getClubByNom(String name);
 	
 	
 

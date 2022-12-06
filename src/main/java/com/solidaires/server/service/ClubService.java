@@ -35,7 +35,13 @@ public class ClubService implements IClubService {
 		// TODO Auto-generated method stub
 		return clubRepository.findById(id).get();
 	}
-	 
+//	@Override
+//	public Club getClubByNom(String name) {
+//		// TODO Auto-generated method stub
+//		
+//		return clubRepository.findByNom(name).get(0);
+//	}
+//	 
 
 
 
