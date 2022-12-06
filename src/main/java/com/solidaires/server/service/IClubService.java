@@ -6,5 +6,6 @@ import com.solidaires.server.entity.Club;
 
 public interface IClubService {
 	public List<Club> getClubs();
+	public Club addClub(Club club);
 
 }

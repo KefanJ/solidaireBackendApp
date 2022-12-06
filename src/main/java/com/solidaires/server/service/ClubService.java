@@ -18,5 +18,10 @@ public class ClubService implements IClubService {
 		// TODO Auto-generated method stub
 		return clubRepository.findAll();
 	}
+	@Override
+	public Club addClub(Club club) {
+		// TODO Auto-generated method stub
+		return clubRepository.save(club);
+	}
 
 }
