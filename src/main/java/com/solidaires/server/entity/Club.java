@@ -1,9 +1,17 @@
 package com.solidaires.server.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Club {
@@ -17,8 +25,21 @@ public class Club {
 	private Long nbrDefaiteTotal;
 	private Long nbrButMarquer;
 	private Long nbrButPris;
+	 @JsonManagedReference
+	@OneToMany(mappedBy = "club", cascade = {CascadeType.PERSIST},fetch = FetchType.LAZY)
+	private Set<Joueur> joueurs = new HashSet<Joueur>();
 	
 	
+	public Set<Joueur> getJoueurs() {
+		return joueurs;
+	}
+
+
+	public void setJoueurs(Set<Joueur> joueurs) {
+		this.joueurs = joueurs;
+	}
+
+
 	public Club() {
 		// TODO Auto-generated constructor stub
 	}

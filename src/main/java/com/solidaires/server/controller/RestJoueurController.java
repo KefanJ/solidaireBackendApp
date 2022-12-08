@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.solidaires.server.entity.Joueur;
+import com.solidaires.server.exception.JoueurException;
 import com.solidaires.server.service.JoueurService;
 
 @RestController
@@ -33,12 +34,12 @@ public class RestJoueurController {
 	}
 	
 	@PostMapping
-	public Joueur createJoueur(@RequestBody Joueur joueur) {
+	public Joueur createJoueur(@RequestBody Joueur joueur) throws JoueurException {
 		return service.saveJoueur(joueur);
 	}
 	
 	@PutMapping
-	public Joueur updateJoueur (@RequestBody Joueur joueur) {
+	public Joueur updateJoueur (@RequestBody Joueur joueur) throws JoueurException {
 		return service.saveJoueur(joueur);
 	}
 	

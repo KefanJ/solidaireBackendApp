@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.solidaires.server.entity.Joueur;
 
+
+
 public interface IJoueurService {
 	public List<Joueur> getJoueurs();
 	public Joueur saveJoueur(Joueur joueur);

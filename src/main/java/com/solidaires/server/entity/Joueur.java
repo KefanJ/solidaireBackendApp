@@ -3,10 +3,16 @@ package com.solidaires.server.entity;
 
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Joueur {
@@ -15,10 +21,11 @@ public class Joueur {
 	private Long id;
 	private String nom;
 	private Long dossard;
-	//@Embedded
-	//@ManyToOne
-	//@JoinColumn(name = "id_club")
-	//private Club club;
+	@Embedded
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonBackReference
+	@JoinColumn(name = "id_club")
+	private Club club;
 	private Long matchJouer;
 	private Long but;
 	private Long passeDecisives;
@@ -29,11 +36,11 @@ public class Joueur {
 	public Joueur() {
 		// TODO Auto-generated constructor stub
 	}
-	public Joueur(String nom, Long dossard, Long matchJouer, Long but, Long passeDecisives, float ratioBut, float ratioPasseDecisives) {
+	public Joueur(String nom, Long dossard,Club club,Long matchJouer, Long but, Long passeDecisives, float ratioBut, float ratioPasseDecisives) {
 		super();
 		this.nom = nom;
 		this.dossard = dossard;
-		//this.club = club;
+		this.club = club;
 		this.matchJouer = matchJouer;
 		this.but = but;
 		this.passeDecisives = passeDecisives;
@@ -59,11 +66,14 @@ public class Joueur {
 	public void setDossard(Long dossard) {
 		this.dossard = dossard;
 	}
-	/*
+	
 	public Club getClub() {
 		return club;
 	}
-	*/	
+	
+	public void setClub(Club club) {
+		this.club = club;
+	}
 	public Long getMatchJouer() {
 		return matchJouer;
 	}
