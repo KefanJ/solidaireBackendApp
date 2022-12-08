@@ -14,6 +14,7 @@ public class JoueurService implements IJoueurService {
 	@Autowired
 	IJoueurRepository joueurRepository;
 
+	
 	@Override
 	public List<Joueur> getJoueurs() {
 		// TODO Auto-generated method stub
@@ -23,6 +24,9 @@ public class JoueurService implements IJoueurService {
 	@Override
 	public Joueur saveJoueur(Joueur joueur) {
 		// TODO Auto-generated method stub
+		joueur.setRatioBut(joueur.getRatioBut());
+		joueur.setRatioPasseDecisives(joueur.getRatioPasseDecisives());
+	
 		return joueurRepository.save(joueur);
 	}
 

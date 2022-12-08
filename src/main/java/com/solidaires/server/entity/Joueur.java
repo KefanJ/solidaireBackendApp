@@ -37,8 +37,6 @@ public class Joueur {
 		this.matchJouer = matchJouer;
 		this.but = but;
 		this.passeDecisives = passeDecisives;
-		ratioBut = Math.round(((float) but / (float) matchJouer) * 100f)/100f ; 
-		ratioPasseDecisives = ((float) passeDecisives / (float) matchJouer);
 		this.ratioBut =  ratioBut;
 		this.ratioPasseDecisives = ratioPasseDecisives;
 		
@@ -65,9 +63,7 @@ public class Joueur {
 	public Club getClub() {
 		return club;
 	}
-	*/
-	
-//	
+	*/	
 	public Long getMatchJouer() {
 		return matchJouer;
 	}
@@ -81,19 +77,27 @@ public class Joueur {
 		this.but = but;
 	}
 	public Long getPasseDecisives() {
+		
 		return passeDecisives;
 	}
 	public void setPasseDecisives(Long passeDecisives) {
 		this.passeDecisives = passeDecisives;
 	}
 	public float getRatioBut() {
+		ratioBut = Math.round(((float) but / (float) matchJouer) * 100f)/100f ; 
 		return ratioBut;
 	}
 	public void setRatioBut(float ratioBut) {
 		this.ratioBut = ratioBut;
 	}
+	@Override
+	public String toString() {
+		return "Joueur [id=" + id + ", nom=" + nom + ", dossard=" + dossard + ", matchJouer=" + matchJouer + ", but="
+				+ but + ", passeDecisives=" + passeDecisives + ", ratioBut=" + ratioBut + ", ratioPasseDecisives="
+				+ ratioPasseDecisives + "]";
+	}
 	public float getRatioPasseDecisives() {
-		  
+		ratioPasseDecisives = Math.round(((float) passeDecisives / (float) matchJouer) * 100f)/100f ; 
 		return ratioPasseDecisives;
 	}
 	public void setRatioPasseDecisives(float ratioPasseDecisives) {
