@@ -40,7 +40,7 @@ public class RestJoueurController {
 	
 	@PutMapping
 	public Joueur updateJoueur (@RequestBody Joueur joueur) throws JoueurException {
-		return service.saveJoueur(joueur);
+		return service.updateJoueur(joueur);
 	}
 	
 	@DeleteMapping("/{id}")
