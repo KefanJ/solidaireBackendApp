@@ -81,16 +81,23 @@ public class JoueurService implements IJoueurService {
 		Club club = clubService.getClubById(joueur.getClub().getId());
 		
 		
+		
 		if(joueur.getId() != null) {
-			joueur.setNom(joueur.getNom());
-			joueur.setDossard(joueur.getDossard());
-			//joueur.setClub(club);
-			club.setId(joueur.getClub().getId());
-			joueur.setMatchJouer(joueur.getMatchJouer());
-			joueur.setBut(joueur.getBut());
-			joueur.setPasseDecisives(joueur.getPasseDecisives());
-			joueur.setRatioBut(joueur.getRatioBut());
-			joueur.setRatioPasseDecisives(joueur.getRatioPasseDecisives());
+			if( joueur.getBut() > club.getNbrButMarquer()) {
+				System.err.println("ERREUR : Le nombre de but du joueur est supérieur à celui du club ! ");
+			}
+			else {
+				joueur.setNom(joueur.getNom());
+				joueur.setDossard(joueur.getDossard());
+				//joueur.setClub(club);
+				club.setId(joueur.getClub().getId());
+				joueur.setMatchJouer(joueur.getMatchJouer());
+				joueur.setBut(joueur.getBut());
+				joueur.setPasseDecisives(joueur.getPasseDecisives());
+				joueur.setRatioBut(joueur.getRatioBut());
+				joueur.setRatioPasseDecisives(joueur.getRatioPasseDecisives());
+				joueurRepository.save(joueur);
+			}
 			
 			
 				//club.setId(joueur.getClub().getId());
@@ -101,9 +108,9 @@ public class JoueurService implements IJoueurService {
 		}
 		// TODO Auto-generated method stub
 
-		System.out.println("Club Id : "+club.getId());
-		System.out.println("Joueur club id : "+ joueur.getClub().getId());
-		return joueurRepository.save(joueur);
+		//System.out.println("Club Id : "+club.getId());
+		//System.out.println("Joueur club id : "+ joueur.getClub().getId());
+		return joueur;
 	}
 
 
